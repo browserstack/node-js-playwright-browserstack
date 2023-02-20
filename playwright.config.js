@@ -58,20 +58,20 @@ const config = {
     {
       name: 'test1',
       use: {
-        connectOptions: { wsEndpoint: getCdpEndpoint('chrome@latest:OSX Big Sur','test1') }
+        connectOptions: { wsEndpoint: getCdpEndpoint('chrome@latest:Windows 11','test1') }
       },
     }
     ,
     {
       name: 'test2',
       use: {
-        connectOptions: { wsEndpoint: getCdpEndpoint('chrome@latest:Windows 10', 'test2') }
+        connectOptions: { wsEndpoint: getCdpEndpoint('playwright-webkit@latest:OSX Ventura', 'test2') }
       },
     },
     {
       name: 'test3',
       use: {
-        connectOptions: { wsEndpoint: getCdpEndpoint('edge@90:Windows 10', 'test3') }
+        connectOptions: { wsEndpoint: getCdpEndpoint('playwright-firefox:Windows 11', 'test3') }
       },
     }
     // {

@@ -12,7 +12,7 @@
 
 ## Running your tests
 
-- To run a single test, run `npx playwright test`
+- To run your first test, run `npx playwright test`
 
 ## Run tests on locally hosted websites
 * Set `browserstack.local:true` in `browserstack.config.js`

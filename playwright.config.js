@@ -14,14 +14,14 @@ const { getCdpEndpoint } = require('./browserstack.config.js')
  * @type {import('@playwright/test').PlaywrightTestConfig}
  */
 const config = {
-  testDir: './tests',
-  testMatch: 'sample_test.js',
-  // testMatch: '**/*.js', -- to run all the test in test directory
+  // testDir: './tests',
+  testMatch: '**/*.js', 
 
-  // uncomment below 3 lines for local testing
+  // testMatch: 'sample_test.js',
   // testMatch: 'local_test.js',
-  // globalSetup: require.resolve('./global-setup'),
-  // globalTeardown: require.resolve('./global-teardown'),
+  
+  globalSetup: require.resolve('./global-setup'),
+  globalTeardown: require.resolve('./global-teardown'),
 
   /* Maximum time one test can run for. */
   timeout: 90 * 1000,

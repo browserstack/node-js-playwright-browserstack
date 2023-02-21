@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "sample-local-test":"npx playwright test tests/local_test.js",
+    "sample-test":"npx playwright test tests/sample_test.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

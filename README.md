@@ -12,13 +12,10 @@
 
 ## Running your tests
 
-- To run your first test, run `npx playwright test`
+- To run a sample test, run `npm run sample-test`
 
 ## Run tests on locally hosted websites
-* Set `browserstack.local:true` in `browserstack.config.js`
-* uncomment line 22,23,24 where we are triggring BrowserStackLocal language binding
-* Add test file inside tests directory
-* Run `npx playwright test`
+* Run `npm run sample-local-test`
 
  Understand how many parallel sessions you need by using our [Parallel Test Calculator](https://www.browserstack.com/automate/parallel-calculator?ref=github)
 

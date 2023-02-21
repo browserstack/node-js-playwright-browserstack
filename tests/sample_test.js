@@ -5,6 +5,7 @@ test('BstackDemo Add to cart', async ({ page }) => {
 
 try{
 
+  await page.evaluate(_ => {},'browserstack_executor: {"action": "setSessionName", "arguments": {"name": "<test-name>"}}');
   await page.waitForTimeout(5000);
 
   await page.goto('https://www.bstackdemo.com/',{ waitUntil: 'networkidle' });

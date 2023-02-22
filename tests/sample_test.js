@@ -1,11 +1,11 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
 
-test('BstackDemo Add to cart', async ({ page }) => {
+test('BstackDemo Add to cart', async ({ page },testInfo) => {
 
 try{
 
-  await page.evaluate(_ => {},'browserstack_executor: {"action": "setSessionName", "arguments": {"name": "<test-name>"}}');
+  await page.evaluate(_ => {},`browserstack_executor: ${JSON.stringify({action: "setSessionName", arguments: {name:testInfo.project.name}})}`);
   await page.waitForTimeout(5000);
 
   await page.goto('https://www.bstackdemo.com/',{ waitUntil: 'networkidle' });
@@ -29,11 +29,11 @@ try{
   await page.getByRole('button', { name: 'Submit' }).click();
   await page.getByRole('button', { name: 'Continue Shopping »' }).click();
 
-  await page.evaluate(_ => {}, `browserstack_executor: ${JSON.stringify({action: 'setSessionStatus',arguments: {status: 'passed',reason: 'reason for pass'}})}`);
+  await page.evaluate(_ => {}, `browserstack_executor: ${JSON.stringify({action: 'setSessionStatus',arguments: {status: 'passed',reason: 'Product added to cart'}})}`);
 
 } catch (e) {
   console.log(e);
-  await page.evaluate(_ => {}, `browserstack_executor: ${JSON.stringify({action: 'setSessionStatus',arguments: {status: 'failed',reason: 'reason for fail'}})}`);
+  await page.evaluate(_ => {}, `browserstack_executor: ${JSON.stringify({action: 'setSessionStatus',arguments: {status: 'failed',reason: 'Test failed'}})}`);
 
 }
 

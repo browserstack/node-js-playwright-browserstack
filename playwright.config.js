@@ -56,20 +56,20 @@ const config = {
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'test1',
+      name: 'chrome@latest:Windows 11',
       use: {
-        connectOptions: { wsEndpoint: getCdpEndpoint('chrome@latest:Windows 11','test1') }
+        connectOptions: { wsEndpoint: getCdpEndpoint('chrome@latest:Windows 11','test1') },
       },
     }
     ,
     {
-      name: 'test2',
+      name: 'playwright-webkit@latest:OSX Ventura',
       use: {
         connectOptions: { wsEndpoint: getCdpEndpoint('playwright-webkit@latest:OSX Ventura', 'test2') }
       },
     },
     {
-      name: 'test3',
+      name: 'playwright-firefox:Windows 11',
       use: {
         connectOptions: { wsEndpoint: getCdpEndpoint('playwright-firefox:Windows 11', 'test3') }
       },

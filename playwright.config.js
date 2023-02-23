@@ -14,11 +14,8 @@ const { getCdpEndpoint } = require('./browserstack.config.js')
  * @type {import('@playwright/test').PlaywrightTestConfig}
  */
 const config = {
-  // testDir: './tests',
+  testDir: './tests',
   testMatch: '**/*.js', 
-
-  // testMatch: 'sample_test.js',
-  // testMatch: 'local_test.js',
   
   globalSetup: require.resolve('./global-setup'),
   globalTeardown: require.resolve('./global-teardown'),
@@ -74,54 +71,6 @@ const config = {
         connectOptions: { wsEndpoint: getCdpEndpoint('playwright-firefox:Windows 11', 'test3') }
       },
     }
-    // {
-    //   name: 'test3',
-    //   use: {
-    //     connectOptions: { wsEndpoint: getCdpEndpoint('playwright-firefox@latest:OSX Catalina', 'test3') }
-    //   },
-    // } ,
-
-    // {
-    //   name: 'firefox',
-    //   use: {
-    //     ...devices['Desktop Firefox'],
-    //   },
-    // },
-
-    // {
-    //   name: 'webkit',
-    //   use: {
-    //     ...devices['Desktop Safari'],
-    //   },
-    // },
-
-    /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: {
-    //     ...devices['Pixel 5'],
-    //   },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: {
-    //     ...devices['iPhone 12'],
-    //   },
-    // },
-
-    /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: {
-    //     channel: 'msedge',
-    //   },
-    // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: {
-    //     channel: 'chrome',
-    //   },
-    // },
   ],
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */

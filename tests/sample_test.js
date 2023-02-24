@@ -35,7 +35,6 @@ try{
   console.log(e);
   await page.evaluate(_ => {}, `browserstack_executor: ${JSON.stringify({action: 'setSessionStatus',arguments: {status: 'failed',reason: 'Test failed'}})}`);
 
-}
+}  
 
-  
 });

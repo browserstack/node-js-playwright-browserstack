@@ -14,6 +14,10 @@
 
 - To run a sample test, run `npm run sample-test`
 
+## Running your tests on mobile
+
+- To run a sample test, run `npm run mobile-test`
+
 ## Run tests on locally hosted websites
 * Run `npm run sample-local-test`
 

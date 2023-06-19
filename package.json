@@ -5,13 +5,15 @@
   "main": "index.js",
   "scripts": {
     "sample-local-test":"npx playwright test tests/local_test.js",
-    "sample-test":"npx playwright test tests/sample_test.js"
+    "sample-test":"npx playwright test tests/sample_test.js",
+    "mobile-test":"npx playwright test tests/mobile_test.js --project='chrome@Samsung Galaxy S22:12@browserstack'"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.29.1",
-    "browserstack-local": "^1.5.1"
+    "browserstack-local": "^1.5.1",
+    "playwright": "1.29.1"
   }
 }

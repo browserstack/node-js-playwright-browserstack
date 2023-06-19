@@ -70,7 +70,16 @@ const config = {
       use: {
         connectOptions: { wsEndpoint: getCdpEndpoint('playwright-firefox:Windows 11', 'test3') }
       },
-    }
+    },
+    {
+      name: 'chrome@Samsung Galaxy S22:12@browserstack',
+      use: {
+          baseURL: 'https://duckduckgo.com/',        
+          browserName: 'chromium',
+          channel: 'chrome'
+          
+      },
+    } 
   ],
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */

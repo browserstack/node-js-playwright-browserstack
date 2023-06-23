@@ -13,7 +13,7 @@ const { test } = require("./browserstack.config");
 // BrowserStack Specific Capabilities.
 // Set 'browserstack.local:true For Local testing
 const caps = {
-  osVersion: "12.0",
+  osVersion: "13.0",
   deviceName: "Samsung Galaxy S23", // "Samsung Galaxy S22 Ultra", "Google Pixel 7 Pro", "OnePlus 9", etc.
   browserName: "chrome",
   realMobile: "true",

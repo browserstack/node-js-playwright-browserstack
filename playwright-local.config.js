@@ -16,6 +16,10 @@ const config = {
   testDir: "./tests",
   testMatch: "**/*.js",
 
+  // Use globalSetup & globalTearedown only if browserstack.local = true
+  globalSetup: require.resolve("./global-setup"),
+  globalTeardown: require.resolve("./global-teardown"),
+
   /* Maximum time one test can run for. */
   timeout: 90 * 1000,
   expect: {
@@ -48,7 +52,7 @@ const config = {
 
   /* Configure projects for major browsers */
   projects: [
-
+    
     {
       name: 'chrome@latest:Windows 10@browserstack',
       use: {

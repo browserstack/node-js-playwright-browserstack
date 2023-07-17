@@ -1,5 +1,5 @@
 // global-teardown.js
-const { bsLocal } = require("./browserstack.config");
+const { bsLocal } = require("./fixture");
 const { promisify } = require("util");
 const sleep = promisify(setTimeout);
 module.exports = async () => {

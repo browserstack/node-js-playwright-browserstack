@@ -1,5 +1,5 @@
 // global-setup.js
-const { bsLocal, BS_LOCAL_ARGS } = require("./browserstack.config");
+const { bsLocal, BS_LOCAL_ARGS } = require("./fixture");
 const { promisify } = require("util");
 const sleep = promisify(setTimeout);
 const redColour = "\x1b[31m";

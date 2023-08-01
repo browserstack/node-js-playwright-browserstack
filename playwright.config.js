@@ -1,7 +1,6 @@
 // @ts-check
 const { devices } = require("@playwright/test");
 
-
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -19,7 +18,7 @@ const config = {
   // Use globalSetup & globalTearedown only if browserstack.local = true
   globalSetup: require.resolve("./global-setup"),
   globalTeardown: require.resolve("./global-teardown"),
-  
+
   /* Maximum time one test can run for. */
   timeout: 90 * 1000,
   expect: {
@@ -52,44 +51,22 @@ const config = {
 
   /* Configure projects for major browsers */
   projects: [
-
     {
-      name: 'chrome@latest:Windows 10@browserstack',
+      name: "chrome@latest:Windows 11@browserstack",
       use: {
-        browserName: 'chromium',
-        channel: 'chrome'
+        browserName: "chromium",
+        channel: "chrome",
       },
     },
     {
-      name: 'chrome@latest-beta:OSX Big Sur@browserstack',
+      name: "chrome@latest-beta:OSX Ventura@browserstack",
       use: {
-        browserName: 'chromium',
-        channel: 'chrome',
+        browserName: "chromium",
+        channel: "chrome",
       },
     },
     {
-      name: 'edge@90:Windows 10@browserstack',
-      use: {
-        browserName: 'chromium'
-      },
-    },
-    {
-      name: 'playwright-firefox@latest:OSX Catalina@browserstack',
-      use: {
-        browserName: 'firefox',
-        ignoreHTTPSErrors: true
-      },
-    },
-    {
-      name: 'playwright-webkit@latest:OSX Big Sur@browserstack',
-      use: {
-        browserName: 'webkit',
-        // Config to use playwright emulated devices.
-        // ...devices['iPhone 12 Pro Max'],
-      },
-    },
-    {
-      name: "chrome@Samsung Galaxy S22:13@browserstack",
+      name: "chrome@Samsung Galaxy S23:13@browserstack",
       use: {
         baseURL: "https://www.bstackdemo.com/",
         browserName: "chromium",

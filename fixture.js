@@ -90,7 +90,7 @@ exports.test = base.test.extend({
                 delete caps.osVersion;
                 delete caps.deviceName;
                 delete caps.realMobile;
-                delete caps.os_version;
+                //delete caps.os_version;
                 
                 const vBrowser = await playwright.chromium.connect({
                     wsEndpoint:

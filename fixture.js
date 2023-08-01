@@ -100,15 +100,7 @@ exports.test = base.test.extend({
                 const vContext = await vBrowser.newContext(testInfo.project.use);
                 const vPage = await vContext.newPage();
                 await use(vPage);
-                const testResult = {
-                    action: 'setSessionStatus',
-                    arguments: {
-                        status: evaluateSessionStatus(testInfo.status),
-                        reason: nestedKeyValue(testInfo, ['error', 'message'])
-                    },
-                };
-                await vPage.evaluate(() => { },
-                    `browserstack_executor: ${JSON.stringify(testResult)}`);
+                
                 await vPage.close();
                 await vBrowser.close();
 

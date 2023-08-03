@@ -6,7 +6,7 @@
   "scripts": {
     "sample-local-test": "BROWSERSTACK_LOCAL=true npx playwright test tests/local_test.js",
     "sample-test": "npx playwright test tests/sample_test.js",
-    "mobile-test": "npx playwright test tests/sample_test.js --project='chrome@Samsung Galaxy S23:13@browserstack'"
+    "mobile-test": "npx playwright test tests/sample_test.js --project='chrome@Samsung Galaxy S22:13@browserstack-mobile'"
   },
   "keywords": [],
   "author": "",

@@ -66,7 +66,7 @@ const config = {
       },
     },
     {
-      name: "chrome@Samsung Galaxy S23:13@browserstack",
+      name: "chrome@Samsung Galaxy S22:13@browserstack-mobile",
       use: {
         baseURL: "https://www.bstackdemo.com/",
         browserName: "chromium",

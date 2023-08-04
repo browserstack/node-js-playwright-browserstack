@@ -4,14 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sample-local-test":"npx playwright test tests/local_test.js",
-    "sample-test":"npx playwright test tests/sample_test.js"
+    "sample-local-test": "BROWSERSTACK_LOCAL=true npx playwright test tests/local_test.js",
+    "sample-test": "npx playwright test tests/sample_test.js",
+    "mobile-test": "npx playwright test tests/sample_test.js --project='chrome@Samsung Galaxy S22:13@browserstack-mobile'"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.29.1",
-    "browserstack-local": "^1.5.1"
+    "@playwright/test": "^1.34.3",
+    "browserstack-local": "^1.5.1",
+    "playwright": "1.34.3",
+    "prettier": "2.8.8"
   }
 }

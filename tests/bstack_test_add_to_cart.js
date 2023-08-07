@@ -1,6 +1,6 @@
 const { expect, test } = require('@playwright/test');
 
-test('BStackDemo sample test 2', async ({ page }) => {
+test('BStackDemo test add to cart', async ({ page }) => {
   // visit the site
   await page.goto('https://bstackdemo.com/');
 

@@ -4,14 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sample-local-test":"npx playwright test tests/local_test.js",
-    "sample-test":"npx playwright test tests/sample_test.js"
+    "sample-test": "npx browserstack-node-sdk playwright test --config=./playwright.config.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.29.1",
-    "browserstack-local": "^1.5.1"
+    "@playwright/test": "^1.35.0",
+    "browserstack-node-sdk": "latest"
   }
 }

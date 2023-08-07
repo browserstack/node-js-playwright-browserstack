@@ -64,6 +64,9 @@ browserstackLocal: true # <boolean> (Default false)
   # forceLocal: true  # <boolean> (Default: false) Set to true if you need to resolve all your traffic via BrowserStack Local tunnel.
   # Entire list of arguments available here -> https://www.browserstack.com/docs/automate/selenium/manage-incoming-connections
 
+framework: playwright
+source: node-js-playwright-sample-sdk:v1
+
 # ===================
 # Debugging features
 # ===================

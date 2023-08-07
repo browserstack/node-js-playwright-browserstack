@@ -1,5 +1,5 @@
 {
-  "name": "v1.28_playwright_test",
+  "name": "node-js-playwright-browserstack",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

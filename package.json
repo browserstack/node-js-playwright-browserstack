@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sample-test": "npx browserstack-node-sdk playwright test --config=./playwright.config.js"
+    "sample-test": "npx browserstack-node-sdk playwright test --config=./playwright.config.js",
+    "sample-local-test": "npx browserstack-node-sdk playwright test --config=./playwright.local.config.js"
   },
   "keywords": [],
   "author": "",

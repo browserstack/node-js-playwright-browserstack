@@ -12,6 +12,7 @@ This repo contains samples for running [Playwright](https://playwright.dev/docs/
 ## Running your tests
 
 - To run the sample tests in parallel across the platforms specified in the `browserstack.yml`, run `npm run sample-test`.
+- To run the sample local tests in parallel across the platforms specified in the `browserstack.yml`, run `npm run sample-local-test`.
 
 ## Notes
 * You can view your test results on the [BrowserStack Automate dashboard](https://www.browserstack.com/automate)

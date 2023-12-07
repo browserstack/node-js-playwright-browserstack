@@ -12,9 +12,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "1.34.3",
+    "@playwright/test": "1.38.1",
     "browserstack-local": "^1.5.1",
-    "playwright": "1.34.3",
+    "playwright": "1.38.1",
     "prettier": "2.8.8"
   }
 }

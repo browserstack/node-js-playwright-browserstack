@@ -59,7 +59,7 @@ const config = {
       },
     },
     {
-      name: "playwright-webkit@latest:OSX Ventura@browserstack",
+      name: "playwright-webkit@17.0:OSX Ventura@browserstack",
       use: {
         browserName: "chromium",
         channel: "chrome",

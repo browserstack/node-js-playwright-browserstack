@@ -52,7 +52,7 @@ const config = {
   /* Configure projects for major browsers */
   projects: [
     {
-      name: "chrome@latest:Windows 11@browserstack",
+      name: "chrome@latest:Windows 10@browserstack",
       use: {
         browserName: "chromium",
         channel: "chrome",

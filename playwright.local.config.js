@@ -1,7 +1,7 @@
 // This is a sample config for what users might be running locally
 const config = {
   testDir: './tests',
-  testMatch: '**/bstack_test*.js',
+  testMatch: '**/bstack_local*.js',
 
   /* Maximum time one test can run for. */
   timeout: 90 * 1000,

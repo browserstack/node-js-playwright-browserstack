@@ -15,12 +15,7 @@ const config = {
   testDir: "./tests",
   testMatch: "**/*.js",
 
-  // Use globalSetup & globalTearedown only if browserstack.local = true
-  globalSetup: require.resolve("./global-setup"),
-  globalTeardown: require.resolve("./global-teardown"),
-
-  /* Maximum time one test can run for. */
-  timeout: 90 * 1000,
+  timeout: 0,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
@@ -52,37 +47,20 @@ const config = {
   /* Configure projects for major browsers */
   projects: [
     {
-      name: "chrome@latest:Windows 11@browserstack",
+      name: "chrome@latest:linux@browserstack",
       use: {
         browserName: "chromium",
         channel: "chrome",
       },
     },
     {
-      name: "playwright-webkit@latest:OSX Ventura@browserstack",
+      name: "playwright-firefox@latest:linux@browserstack",
       use: {
-        browserName: "chromium",
-        channel: "chrome",
-      },
-    },
-    {
-      name: "chrome@Samsung Galaxy S22:13@browserstack-mobile",
-      use: {
-        baseURL: "https://www.bstackdemo.com/",
-        browserName: "chromium",
-        channel: "chrome",
+        browserName: "firefox",
       },
     },
   ],
 
-  /* Folder for test artifacts such as screenshots, videos, traces, etc. */
-  // outputDir: 'test-results/',
-
-  /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   port: 3000,
-  // },
 };
 
 module.exports = config;

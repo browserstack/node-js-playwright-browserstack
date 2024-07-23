@@ -1,6 +1,3 @@
 node_modules
 playwright-report
-local.log
-local.log
-package-lock.json
-local.log
+test-results/

@@ -13,7 +13,7 @@ const config = {
     timeout: 5000,
   },
   /* tests in parallel */
-  workers: 1,
+  workers: 100,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'line',
   /* Configure projects for major browsers */

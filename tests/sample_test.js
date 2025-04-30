@@ -8,15 +8,14 @@ test("BstackDemo Add to cart", async ({ page }, testInfo) => {
     `browserstack_executor: ${JSON.stringify({ action: "setSessionName", arguments: { name: testInfo.project.name } })}`);
     await page.waitForTimeout(5000);
 
-    await page.goto("https://www.bstackdemo.com/", {
-      waitUntil: "networkidle",
-    });
+    await page.goto("https://www.bstackdemo.com/");
+    await page.waitForTimeout(5000);
     await page.locator('[id="\\32 "]').getByText("Add to cart").click();
     await page.getByText("Checkout").click();
     await page.locator("#username svg").click();
-    await page.locator("#react-select-2-option-0-0").click({ force: true });
-    await page.locator("#password svg").click({ force: true });
-    await page.locator("#react-select-3-option-0-0").click({ force: true });
+    await page.locator("#react-select-2-option-0-0").click();
+    await page.locator("#password svg").click();
+    await page.locator("#react-select-3-option-0-0").click();
     await page.getByRole("button", { name: "Log In" }).click();
     await page.getByLabel("First Name").click();
     await page.getByLabel("First Name").fill("SampleFirst");

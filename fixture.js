@@ -32,7 +32,7 @@ exports.BS_LOCAL_ARGS = {
 };
 
 // Patching the capabilities dynamically according to the project name.
-const patchMobileCaps = (name, title) => {
+const patchAndroidCaps = (name, title) => {
   let combination = name.split(/@browserstack/)[0];
   let [browerCaps, osCaps] = combination.split(/:/);
   let [browser, deviceName] = browerCaps.split(/@/);
@@ -60,6 +60,20 @@ const patchCaps = (name, title) => {
   caps.name = title;
 };
 
+const patchIosCaps = (name, title) => {
+  let combination = name.split(/@browserstack/)[0];
+  let [browerCaps, osCaps] = combination.split(/:/);
+  let [browser, deviceName] = browerCaps.split(/@/);
+  let osCapsSplit = osCaps.split(/ /);
+  let os = osCapsSplit.shift();
+  let osVersion = osCapsSplit.join(" ");
+  caps.browser = browser ? browser : "safari";
+  caps.deviceName = deviceName ? deviceName : "Iphone 16";
+  caps.osVersion = osVersion ? osVersion : "18";
+  caps.name = title;
+  caps.realMobile = "true";
+};
+
 const isHash = (entity) =>
   Boolean(entity && typeof entity === "object" && !Array.isArray(entity));
 const nestedKeyValue = (hash, keys) =>
@@ -82,9 +96,10 @@ exports.test = base.test.extend({
   page: async ({ page, playwright }, use, testInfo) => {
     if (testInfo.project.name.match(/browserstack/)) {
       let vBrowser, vContext, vDevice;
-      const isMobile = testInfo.project.name.match(/browserstack-mobile/);
-      if (isMobile) {
-        patchMobileCaps(
+      const isAndroid = testInfo.project.name.match(/browserstack-android/);
+      const isIOS = testInfo.project.name.match(/browserstack-ios/);
+      if (isAndroid) {
+        patchAndroidCaps(
           testInfo.project.name,
           `${testInfo.file} - ${testInfo.title}`
         );
@@ -95,6 +110,18 @@ exports.test = base.test.extend({
         );
         await vDevice.shell("am force-stop com.android.chrome");
         vContext = await vDevice.launchBrowser();
+      } else if(isIOS) {
+        patchIosCaps(
+          testInfo.project.name,
+          `${testInfo.file} - ${testInfo.title}`
+        );
+
+        vBrowser = await playwright.webkit.connect({
+          wsEndpoint:
+            `wss://cdp.browserstack.com/playwright?caps=` +
+            `${encodeURIComponent(JSON.stringify(caps))}`,
+        });
+        vContext = await vBrowser.newContext(testInfo.project.use);
       } else {
         patchCaps(testInfo.project.name, `${testInfo.title}`);
         delete caps.osVersion;
@@ -112,7 +139,7 @@ exports.test = base.test.extend({
 
       await vPage.close();
 
-      if (isMobile) {
+      if (isAndroid) {
         await vDevice.close();
       } else {
         await vBrowser.close();
@@ -123,31 +150,50 @@ exports.test = base.test.extend({
   },
 
   beforeEach: [
-    async ({ page }, use) => {
-      await page
-        .context()
-        .tracing.start({ screenshots: true, snapshots: true, sources: true });
-      await use();
+    async ({ page }, use, testInfo) => {
+      const isIOS = testInfo.project.name.match(/browserstack-ios/);
+      if(isIOS) {
+        await page.context();
+        await use();
+      } else {
+        await page
+          .context()
+          .tracing.start({ screenshots: true, snapshots: true, sources: true });
+        await use();
+      }
     },
     { auto: true },
   ],
 
   afterEach: [
     async ({ page }, use, testInfo) => {
+      const isIOS = testInfo.project.name.match(/browserstack-ios/);
       await use();
-      if (testInfo.status == "failed") {
-        await page
-          .context()
-          .tracing.stop({ path: `${testInfo.outputDir}/trace.zip` });
-        await page.screenshot({ path: `${testInfo.outputDir}/screenshot.png` });
-        await testInfo.attach("screenshot", {
-          path: `${testInfo.outputDir}/screenshot.png`,
-          contentType: "image/png",
-        });
-        await testInfo.attach("trace", {
-          path: `${testInfo.outputDir}/trace.zip`,
-          contentType: "application/zip",
-        });
+
+      if(isIOS) {
+        if (testInfo.status == "failed") {
+          await page.context();
+          await page.screenshot({ path: `${testInfo.outputDir}/screenshot.png` });
+          await testInfo.attach("screenshot", {
+            path: `${testInfo.outputDir}/screenshot.png`,
+            contentType: "image/png",
+          });
+        }
+      } else {
+        if (testInfo.status == "failed") {
+          await page
+            .context()
+            .tracing.stop({ path: `${testInfo.outputDir}/trace.zip` });
+          await page.screenshot({ path: `${testInfo.outputDir}/screenshot.png` });
+          await testInfo.attach("screenshot", {
+            path: `${testInfo.outputDir}/screenshot.png`,
+            contentType: "image/png",
+          });
+          await testInfo.attach("trace", {
+            path: `${testInfo.outputDir}/trace.zip`,
+            contentType: "application/zip",
+          });
+        }
       }
     },
     { auto: true },

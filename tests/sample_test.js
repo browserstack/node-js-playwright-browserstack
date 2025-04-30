@@ -28,6 +28,7 @@ test("BstackDemo Add to cart", async ({ page }, testInfo) => {
     await page.getByLabel("Postal Code").click();
     await page.getByLabel("Postal Code").fill("123456");
     await page.getByRole("button", { name: "Submit" }).click();
+    await page.waitForTimeout(2000);
     await page.getByRole("button", { name: "Continue Shopping »" }).click();
 
     await page.evaluate((_) => {},

@@ -11,6 +11,8 @@ test("Local Testing", async ({ page }, testInfo) => {
 
     await page.goto("http://localhost:5500/");
 
+    await page.waitForTimeout(5000);
+
     await page.evaluate((_) => {},
     `browserstack_executor: ${JSON.stringify({ action: "setSessionStatus", arguments: { status: "passed", reason: "Local success" } })}`);
   } catch (e) {

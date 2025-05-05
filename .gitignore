@@ -4,3 +4,6 @@ local.log
 local.log
 package-lock.json
 local.log
+.obs_test_details-*
+/log
+/test-results

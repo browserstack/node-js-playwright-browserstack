@@ -6,15 +6,16 @@
   "scripts": {
     "sample-local-test": "BROWSERSTACK_LOCAL=true npx playwright test tests/local_test.js",
     "sample-test": "npx playwright test tests/sample_test.js",
-    "mobile-test": "npx playwright test tests/sample_test.js --project='chrome@Samsung Galaxy S22:13@browserstack-mobile'"
+    "mobile-test": "npx playwright test tests/sample_test.js --project='chrome@Samsung Galaxy S22:13@browserstack-android'",
+    "ios-test": "npx playwright test tests/sample_test.js --project='safari@iPhone 16:18@browserstack-ios'"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "1.39.0",
+    "@playwright/test": "latest",
     "browserstack-local": "^1.5.1",
-    "playwright": "1.39.0",
+    "playwright": "latest",
     "prettier": "2.8.8"
   }
 }

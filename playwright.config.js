@@ -66,9 +66,16 @@ const config = {
       },
     },
     {
-      name: "chrome@Samsung Galaxy S22:13@browserstack-mobile",
+      name: "chrome@Samsung Galaxy S22:13@browserstack-android",
       use: {
         baseURL: "https://www.bstackdemo.com/",
+        browserName: "chromium",
+        channel: "chrome",
+      },
+    },
+    {
+      name: "safari@iPhone 16:18@browserstack-ios",
+      use: {
         browserName: "chromium",
         channel: "chrome",
       },

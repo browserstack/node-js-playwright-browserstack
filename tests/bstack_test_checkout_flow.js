@@ -6,12 +6,13 @@ test('BStackDemo test checkout flow', async ({ page }) => {
 
   // sign in
   await page.click('#signin');
-  await page.locator("#react-select-2-input").click();
-  await page.locator("#react-select-2-option-0-3").click();
-  await page.locator("#react-select-3-input").click();
+  await page.locator("#username svg").click();
+  await page.locator("#react-select-2-option-0-0").click();
+  await page.locator("#password svg").click();
   await page.locator("#react-select-3-option-0-0").click();
+
   await page.click('#login-btn');
-  await page.waitForNavigation();
+  await page.waitForTimeout(500);
 
   // click on buy item
   await page.click('#\\31 > .shelf-item__buy-btn');
@@ -30,5 +31,4 @@ test('BStackDemo test checkout flow', async ({ page }) => {
   await page.click('#checkout-shipping-continue');
   await page.click('text=Continue');
   await page.click('text=Orders');
-
 });

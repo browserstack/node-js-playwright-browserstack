@@ -1,4 +1,4 @@
-const { expect, test } = require('@playwright/test');
+const { test } = require('@playwright/test');
 
 test('BStackDemo test checkout flow', async ({ page }) => {
   // visit the site

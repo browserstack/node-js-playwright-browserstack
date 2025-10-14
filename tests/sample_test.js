@@ -2,37 +2,48 @@
 const { test } = require("../fixture");
 const { expect } = require("@playwright/test");
 
-test("BstackDemo Add to cart", async ({ page }, testInfo) => {
+test("Browserstack playwright demo", async ({ page }, testInfo) => {
   try {
     await page.evaluate((_) => {},
     `browserstack_executor: ${JSON.stringify({ action: "setSessionName", arguments: { name: testInfo.project.name } })}`);
-    await page.waitForTimeout(5000);
 
-    await page.goto("https://www.bstackdemo.com/");
-    await page.waitForTimeout(5000);
-    await page.locator('[id="\\32 "]').getByText("Add to cart").click();
-    await page.getByText("Checkout").click();
-    await page.locator("#username svg").click();
-    await page.locator("#react-select-2-option-0-0").click();
-    await page.locator("#password svg").click();
-    await page.locator("#react-select-3-option-0-0").click();
-    await page.getByRole("button", { name: "Log In" }).click();
-    await page.getByLabel("First Name").click();
-    await page.getByLabel("First Name").fill("SampleFirst");
-    await page.getByLabel("Last Name").click();
-    await page.getByLabel("Last Name").fill("sampleLast");
-    await page.getByLabel("Address").click();
-    await page.getByLabel("Address").fill("sampleAddress");
-    await page.getByLabel("State/Province").click();
-    await page.getByLabel("State/Province").fill("SampleState");
-    await page.getByLabel("Postal Code").click();
-    await page.getByLabel("Postal Code").fill("123456");
-    await page.getByRole("button", { name: "Submit" }).click();
-    await page.waitForTimeout(2000);
-    await page.getByRole("button", { name: "Continue Shopping »" }).click();
+    const baseUrl = 'https://the-internet.herokuapp.com/';
+
+    await page.goto(baseUrl);
+
+    await page.waitForTimeout(3000);
+
+    await expect(page).toHaveTitle('The Internet');
+
+    await page.getByRole('link', { name: 'Checkboxes' }).click();
+
+    const checkbox1 = page.getByRole('checkbox').first();
+    const checkbox2 = page.getByRole('checkbox').last();
+
+    expect(await checkbox1.isChecked()).toBe(false);
+    await checkbox1.check();
+    expect(await checkbox1.isChecked()).toBe(true);
+
+    expect(await checkbox2.isChecked()).toBe(true);
+    await checkbox2.uncheck();
+    expect(await checkbox2.isChecked()).toBe(false);
+
+    await page.goto(baseUrl);
+    await page.getByRole('link', { name: 'Dropdown' }).click();
+
+    const dropdown = page.locator('#dropdown');
+    await dropdown.selectOption({ label: 'Option 1' });
+
+    await page.goBack();
+
+    const availableExamples = page.getByRole('heading', { name: 'Available Examples' });
+    const headingText = await availableExamples.textContent();
+    expect(headingText).toContain('Available Examples');
+
+    await page.screenshot();
 
     await page.evaluate((_) => {},
-    `browserstack_executor: ${JSON.stringify({ action: "setSessionStatus", arguments: { status: "passed", reason: "Product added to cart" } })}`);
+    `browserstack_executor: ${JSON.stringify({ action: "setSessionStatus", arguments: { status: "passed", reason: "Demo completed successfully" } })}`);
   } catch (e) {
     console.log(e);
     await page.evaluate((_) => {},

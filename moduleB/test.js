@@ -53,7 +53,7 @@ test('always pasing test - example F', async () => {
   expect(true).toBe(true);
 });
 
-test('always pasing test - example G', async () => {
+test('always pasing test - example G', { tag: ['@must_pass', '@p1'] }, async () => {
   expect(true).toBe(true);
 });
 
@@ -92,7 +92,7 @@ test('always pasing test - example E', async () => {
 test.describe(() => {
   test.describe.configure({ retries: 2 });
 
-  test('Test with framework-level retry - 2 retries configured', async () => {
+  test('Test with framework-level retry - 2 retries configured', { tag: ['@regression'] }, async () => {
     const randomOutcome = Math.random() > 0.7; // 30% chance of passing
     if (!randomOutcome) {
       throw new Error("Test failed, retrying...");

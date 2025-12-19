@@ -41,7 +41,7 @@ test('flaky test - intermittently passes and fails', async () => {
   expect(headingText).toContain('Available Examples');
 });
 
-test('always failing test - incorrect page title', async () => {
+test('always failing test - incorrect page title', { tag: ['@regression'] }, async () => {
   await page.goto(baseUrl);
 
   await page.waitForTimeout(3000);
@@ -69,7 +69,7 @@ test('always pasing test - example G', async () => {
 //   expect(true).toBe(true);
 // });
 
-test('always pasing test - example I', async () => {
+test('always pasing test - example I', { tag: ['@p1'] }, async () => {
   expect(true).toBe(true);
 });
 

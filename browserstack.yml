@@ -21,6 +21,8 @@ buildName: browserstack build
 # Read more about buildIdentifiers here -> https://www.browserstack.com/docs/automate/selenium/organize-tests
 buildIdentifier: '#${BUILD_NUMBER}' # Supports strings along with either/both ${expression}
 
+CUSTOM_TAG_1: bstack_sample
+
 # =======================================
 # Platforms (Browsers / Devices to test)
 # =======================================

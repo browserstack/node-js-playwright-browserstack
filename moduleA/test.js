@@ -34,7 +34,7 @@ test.beforeAll(async ({ browser }) => {
   // await page.goBack();
 });
 
-test('flaky test - intermittently passes and fails', async () => {
+test('flaky test - intermittently passes and fails', { tag: ['@regression'] }, async () => {
   const headingName = Math.random() > 0.7 ? 'Available Examples' : 'Some Other Heading';
   const availableExamples = page.getByRole('heading', { name: headingName });
   const headingText = await availableExamples.textContent();
@@ -57,7 +57,7 @@ test('always failing test - same stacktrace 1', async () => {
 //   throw new Error("NullPointerError: Cannot read property 'foo' of null");
 // });
 
-test('always pasing test - example F', async () => {
+test('always pasing test - example F', { tag: ['@must_pass'] }, async () => {
   expect(true).toBe(true);
 });
 
@@ -73,7 +73,7 @@ test('always pasing test - example I', async () => {
   expect(true).toBe(true);
 });
 
-test('always passing test - verify page title', async () => {
+test('always passing test - verify page title', { tag: ['@p1'] }, async () => {
   await page.goto(baseUrl);
 
   await page.waitForTimeout(3000);

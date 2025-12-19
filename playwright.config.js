@@ -4,7 +4,7 @@ const config = {
   testMatch: 'module*/**/*.js',
 
   /* Maximum time one test can run for. */
-  timeout: 20 * 1000,
+  timeout: 10 * 1000,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.

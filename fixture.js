@@ -94,7 +94,7 @@ exports.test = base.test.extend({
           )}`
         );
         await vDevice.shell("am force-stop com.android.chrome");
-        vContext = await vDevice.launchBrowser();
+        vContext = await vDevice.launchBrowser(testInfo.project.use);
       } else {
         patchCaps(testInfo.project.name, `${testInfo.title}`);
         delete caps.osVersion;
